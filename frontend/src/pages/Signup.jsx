@@ -27,7 +27,7 @@ const Signup = () => {
 
         setLoading(true);
         try {
-            await axios.post('https://your-backend.onrender.com/api/users/register', {
+            await axios.post('https://your-backend.onrender.com/api/auth/signup', {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password

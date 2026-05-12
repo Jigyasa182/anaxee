@@ -23,7 +23,7 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('https://your-backend.onrender.com/api/users/login', formData);
+            const response = await axios.post('https://your-backend.onrender.com/api/auth/login', formData);
             login(response.data.user, response.data.token);
             navigate('/dashboard');
         } catch (err) {
