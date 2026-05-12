@@ -17,7 +17,7 @@ const Dashboard = () => {
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:5000/api/products`, {
+            const response = await axios.get(`https://your-backend.onrender.com/api/products`, {
                 params: {
                     search,
                     category
@@ -52,9 +52,9 @@ const Dashboard = () => {
             };
 
             if (editingProduct) {
-                await axios.put(`http://localhost:5000/api/products/${editingProduct._id}`, productData, config);
+                await axios.put(`https://your-backend.onrender.com/api/products/${editingProduct._id}`, productData, config);
             } else {
-                await axios.post('http://localhost:5000/api/products', productData, config);
+                await axios.post('https://your-backend.onrender.com/api/products', productData, config);
             }
             fetchProducts();
             setShowAddModal(false);
@@ -69,7 +69,7 @@ const Dashboard = () => {
         if (window.confirm('Are you sure you want to delete this product?')) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`http://localhost:5000/api/products/${id}`, {
+                await axios.delete(`https://your-backend.onrender.com/api/products/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
