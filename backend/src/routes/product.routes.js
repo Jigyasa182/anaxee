@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { protect } = require('../middlewares/auth.middleware');
 
 const { 
     getProducts,
@@ -8,6 +9,8 @@ const {
     updateProduct,
     deleteProduct 
 } = require('../controllers/product.controller');
+
+router.use(protect);
 
 router.get('/', getProducts);
 router.get('/:id', getProductById);
